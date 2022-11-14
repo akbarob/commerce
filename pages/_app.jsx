@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <StateContext>
       <Layout>
-        <ToastContainer />
+        <ToastContainer position="top-center" />
         <Component {...pageProps} />
       </Layout>
     </StateContext>

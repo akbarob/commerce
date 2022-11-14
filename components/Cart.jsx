@@ -61,7 +61,17 @@ const Cart = () => {
       toast.success("Thanks for doing business with us! Come back soon!!");
     },
     //
-    onClose: () => toast.error("Wait! You need this products, don't go!!!!"),
+    onClose: () =>
+      toast.error("Wait! You need this products, don't go!!!!", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      }),
   };
 
   const handleCheckout = async () => {
@@ -80,7 +90,16 @@ const Cart = () => {
     const data = await response.json();
     console.log("body_data:", data.id);
 
-    toast.loading("Redirecting...");
+    toast.loading("Redirecting...", {
+      hideProgressBar: true,
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
     stripe.redirectToCheckout({ sessionId: data.id });
   };
   return (
