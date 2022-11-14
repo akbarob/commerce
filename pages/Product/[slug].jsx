@@ -40,7 +40,7 @@ const ProductDetails = ({ products, product }) => {
               className="w-[400px] rounded-xl bg-gray-400 cursor-pointer transition-all ease-in-out duration-75 hover:bg-rose-500"
             />
           </div>
-          <div className="flex md:flex-row flex-col gap-2 mt-4">
+          <div className="flex md:flex-row flex-col gap-2 mt-4 items-center justify-center">
             {image.map((item, i) => (
               <img
                 key={i}
@@ -72,7 +72,7 @@ const ProductDetails = ({ products, product }) => {
           <p className="text-gray-400">
             <span className="decoration-double line-through font-extrabold">
               N
-            </span>
+            </span>{" "}
             {price}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-3 ">
@@ -87,14 +87,14 @@ const ProductDetails = ({ products, product }) => {
               <span className=" border-solid text-xl py-1.5 px-3">{qty}</span>
 
               <span
-                className="border-l-[1px] text-[ rgb(49, 168, 49)] cursor-pointer py-1.5 px-3"
+                className="text-[#f02d34]  border-l-[1px] text-[ rgb(49, 168, 49)] cursor-pointer py-1.5 px-3"
                 onClick={incQty}
               >
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
-          <div className="buttons">
+          <div className="">
             <button
               className="py-3 px-5 border-[1px] border-solid rounded-md mt-10 text-lg font-medium bg-white w-[200px] transition-all hover:scale-110 ease-in-out cursor-pointer"
               onClick={() => onAdd(product, qty)}
@@ -103,7 +103,7 @@ const ProductDetails = ({ products, product }) => {
             </button>
             <button
               onClick={handleBuyNow}
-              className="py-3 px-5 border-[1px] border-solid rounded-md mt-10 text-lg font-medium bg-red-500 w-[200px] transition-all hover:scale-110 ease-in-out cursor-pointer"
+              className="py-3 px-5 border-[1px] border-solid rounded-md mt-10 text-lg font-medium bg-rose-500 w-[200px] transition-all hover:scale-110 ease-in-out cursor-pointer md:ml-4"
             >
               Buy Now
             </button>
@@ -114,8 +114,8 @@ const ProductDetails = ({ products, product }) => {
         <h2 className="text-center m-10 text-2xl font-bold text-[#324d67]">
           You may also like
         </h2>
-        <div className=" h-[400px] w-full overflow-x-hidden my-10">
-          <div className="flex justify-center gap-x-6 mt-5  z-10">
+        <div className=" w-full  my-10 px-12">
+          <div className="flex justify-center gap-x-6 mt-5  overflow-hidden animate-marquee">
             {products.map((item, i) => (
               <Product key={item._id} product={item} />
             ))}

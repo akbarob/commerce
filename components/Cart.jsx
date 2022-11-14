@@ -6,15 +6,15 @@ import {
   AiOutlineLeft,
   AiOutlineShopping,
 } from "react-icons/ai";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { TiDeleteOutline } from "react-icons/ti";
-// import toast from "react-hot-toast";
 
 import { urlFor } from "../lib/client";
-// import getStripe from "../lib/Getstripe";
-// import getPayStack from "../lib/GetPaystack";
+import getStripe from "../lib/Getstripe";
 import { PaystackButton } from "react-paystack";
 import { useRouter } from "next/router";
 import { useStateContext } from "../contextAPI/stateContext";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   const router = useRouter();
@@ -57,13 +57,15 @@ const Cart = () => {
     text: "Pay With PayStack",
     onSuccess: () => {
       router.push("/success");
+
       toast.success("Thanks for doing business with us! Come back soon!!");
     },
-    onClose: () => toast.error("Wait! You need this oil, don't go!!!!"),
+    //
+    onClose: () => toast.error("Wait! You need this products, don't go!!!!"),
   };
 
   const handleCheckout = async () => {
-    const stripe = await stripe();
+    const stripe = await getStripe();
     const response = await fetch("/api/stripe", {
       method: "POST",
       headers: {
@@ -83,12 +85,12 @@ const Cart = () => {
   };
   return (
     <div
-      className=" fixed inset-x-0 inset-y-0  bg-black/70 h-screen z-50 flex justify-end"
+      className=" fixed inset-x-0 inset-y-0  bg-black/70 h-screen z-50 flex justify-end overscroll-y-contain"
       ref={cartRef}
       onClick={() => setShowCart(false)}
     >
       <div
-        className=" w-full lg:w-1/3 bg-white h-screen borderr-solid border-2 z-50"
+        className=" w-full lg:w-1/3 bg-white h-screen border-solid border-2 z-50"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -97,9 +99,11 @@ const Cart = () => {
           onClick={() => setShowCart(false)}
         >
           {" "}
-          <AiOutlineLeft />
-          <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantity} items)</span>
+          <BsFillArrowLeftCircleFill size={30} />
+          <span className="mt-8 font-semibold">Your Cart </span>
+          <span className="font-bold text-rose-500">
+            ({totalQuantity} items)
+          </span>
         </button>
         {cartItems.length < 1 && (
           <div className="flex flex-col items-center justify-center m-10 bg-rose-100">
@@ -122,7 +126,7 @@ const Cart = () => {
           {cartItems.length >= 1 &&
             cartItems.map((item, i) => (
               <div
-                className="flex justify-between p-6 border-b-2 border-dashed border-black"
+                className="flex justify-between p-4 border-b-2 border-dashed border-black/20"
                 key={item._id}
               >
                 <img
@@ -130,7 +134,7 @@ const Cart = () => {
                   alt={item?.name}
                   className="rounded-md bg-gray-300  selected-image w-[120px]"
                 />
-                <div className="flex flex-col justify-between w-2/3">
+                <div className="flex flex-col justify-between ">
                   <div className="flex items-center justify-between ">
                     <h5 className="font-semibold mr-4">{item?.name}</h5>
                     <h4 className="font-semibold mt-2 md:mt-0 text-rose-500">
@@ -157,7 +161,7 @@ const Cart = () => {
                       </span>
 
                       <span
-                        className="border-l-[1px] text-[ rgb(49, 168, 49)] cursor-pointer py-1.5 px-3"
+                        className="text-[#f02d34] border-l-[1px] text-[ rgb(49, 168, 49)] cursor-pointer py-1.5 px-3"
                         onClick={(e) => {
                           e.stopPropagation();
 
@@ -185,8 +189,8 @@ const Cart = () => {
         {cartItems?.length >= 1 && (
           <div className="">
             <div className="total px-12 flex justify-between">
-              <h3>Subtotal: </h3>
-              <h3>
+              <h3 className="font-bold text-xl">Subtotal: </h3>
+              <h3 className="font-bold text-xl text-rose-500">
                 {" "}
                 <span className="decoration-double line-through font-extrabold">
                   N
@@ -194,7 +198,7 @@ const Cart = () => {
                 {totalPrice}
               </h3>
             </div>
-            <div className="px-10 mt-2">
+            <div className="px-10 mt-4">
               <button
                 type="button"
                 className="py-3 px-4 bg-[#f02d34] text-white w-full rounded-xl uppercase hover:scale-110 transition-all ease-in-out"

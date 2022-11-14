@@ -18,7 +18,7 @@ const HeroBanner = ({ heroBanner }) => {
         className="absolute top-0 left-[20%]  w-[250px] h-[250px] md:w-[450px] md:h-[450px]"
       />
       <div>
-        <Link href={`/product/${heroBanner.product}`}>
+        <Link href={`/Product/${heroBanner.product}`}>
           <button
             type="button"
             className="rounded-[15px] py-[10px] px-[16px] bg-[#f02d34] text-white mt-[40px] text-lg font-semibold cursor-pointer z-50"

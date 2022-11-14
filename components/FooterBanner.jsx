@@ -35,7 +35,7 @@ const FooterBanner = ({
             {midText}
           </h3>
           <p className=" text-lg">{desc}</p>
-          <Link href={`/product/${product}`}>
+          <Link href={`/Product/${product}`}>
             <button className="bg-white text-[#f02d34] rounded-[15px] py-[10px] px-[16px]  mt-[40px] text-lg font-semibold cursor-pointer z-50">
               {buttonText}
             </button>

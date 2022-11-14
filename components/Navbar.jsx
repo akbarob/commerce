@@ -7,14 +7,16 @@ import Cart from "./Cart";
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantity } = useStateContext();
   return (
-    <div className="flex justify-between items-center px-6 py-4 border-2">
+    <div className="flex justify-between items-center mb-2 px-5  z-50 border-2 border-solid border-slate-300 h-[52px] backdrop-blur-sm w-full">
       <p>
-        <Link href="/">Commerce Store</Link>
+        <Link href="/" className="font-bold text-xl">
+          Commerce Store
+        </Link>
       </p>
       <button className="relative" onClick={() => setShowCart(true)}>
         <AiOutlineShopping size={40} />
-        <span className="absolute -top-2 -right-3 w-6 h-6 rounded-full bg-amber-700 flex items-center justify-center">
-          0
+        <span className="absolute -top-1 -right-2 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
+          {totalQuantity}
         </span>
       </button>
       {console.log(showCart)}
