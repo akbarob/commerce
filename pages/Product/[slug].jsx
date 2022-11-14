@@ -99,7 +99,7 @@ const ProductDetails = ({ products, product }) => {
               className="py-3 px-5 border-[1px] border-solid rounded-md mt-10 text-lg font-medium bg-white w-[200px] transition-all hover:scale-110 ease-in-out cursor-pointer"
               onClick={() => onAdd(product, qty)}
             >
-              add to cart
+              Add to cart
             </button>
             <button
               onClick={handleBuyNow}
