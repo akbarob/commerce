@@ -7,7 +7,7 @@ const Success = () => {
   const { setCartItems, setTotalPrice, setTotalQuantity } = useStateContext();
   useEffect(() => {
     localStorage.clear();
-    setCartItems("");
+    setCartItems([]);
     setTotalPrice(0);
     setTotalQuantity(0);
     Fireworks();

@@ -56,9 +56,19 @@ const Cart = () => {
     publicKey,
     text: "Pay With PayStack",
     onSuccess: () => {
+      setShowCart(false);
       router.push("/success");
 
-      toast.success("Thanks for doing business with us! Come back soon!!");
+      toast.success("Thanks for doing business with us! Come back soon!!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     },
     //
     onClose: () =>
