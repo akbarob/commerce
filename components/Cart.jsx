@@ -85,7 +85,7 @@ const Cart = () => {
   };
   return (
     <div
-      className=" fixed inset-x-0 inset-y-0  bg-black/70 h-screen z-50 flex justify-end overscroll-y-contain"
+      className=" fixed inset-x-0 inset-y-0  bg-black/70 h-screen z-50 flex justify-end overscroll-y-contain font-quicksand"
       ref={cartRef}
       onClick={() => setShowCart(false)}
     >
@@ -95,7 +95,7 @@ const Cart = () => {
       >
         <button
           type="button"
-          className="cart-heading"
+          className="pl-5"
           onClick={() => setShowCart(false)}
         >
           {" "}
@@ -108,7 +108,7 @@ const Cart = () => {
         {cartItems.length < 1 && (
           <div className="flex flex-col items-center justify-center m-10 bg-rose-100">
             <AiOutlineShopping size={150} />
-            <h3 className="font-semibold text-xl">Your bag is empty</h3>
+            <h3 className="font-semibold text-xl ">Your bag is empty</h3>
             <Link href="/">
               <button
                 type="button"
@@ -122,11 +122,11 @@ const Cart = () => {
             </Link>
           </div>
         )}
-        <div className=" overflow-y-auto h-[70vh]">
+        <div className=" overflow-y-auto h-[66vh]">
           {cartItems.length >= 1 &&
             cartItems.map((item, i) => (
               <div
-                className="flex justify-between p-4 border-b-2 border-dashed border-black/20"
+                className="flex justify-between items-center p-4 border-b-2 border-dashed border-black/20"
                 key={item._id}
               >
                 <img
@@ -134,9 +134,11 @@ const Cart = () => {
                   alt={item?.name}
                   className="rounded-md bg-gray-300  selected-image w-[120px]"
                 />
-                <div className="flex flex-col justify-between ">
-                  <div className="flex items-center justify-between ">
-                    <h5 className="font-semibold mr-4">{item?.name}</h5>
+                <div className="flex flex-col justify-between items-center w-[60%]">
+                  <div className="flex items-center justify-between w-full">
+                    <h5 className="font-semibold mr-4 text-left">
+                      {item?.name}
+                    </h5>
                     <h4 className="font-semibold mt-2 md:mt-0 text-rose-500">
                       <span className="decoration-double line-through font-extrabold">
                         N
@@ -145,8 +147,8 @@ const Cart = () => {
                       {item?.price}
                     </h4>
                   </div>
-                  <div className="flex items-center justify-between mt-10">
-                    <p className="flex  gap-2 items-center border-2 rounded-md justify-between ">
+                  <div className="flex justify-between  items-center w-full  mt-10">
+                    <p className="flex  gap-2 items-center border-2 rounded-md justify-between mr-10">
                       <span
                         className="text-[#f02d34] border-r-[1px] border-solid cursor-pointer py-1.5 px-3"
                         onClick={(e) => {

@@ -115,7 +115,7 @@ const ProductDetails = ({ products, product }) => {
           You may also like
         </h2>
         <div className=" w-full  my-5 px-12">
-          <div className="flex justify-center itmes-center gap-x-6 mt-5 overflow-x-auto md:overflow-hidden md:animate-marquee -mx-5 md:-mx-0">
+          <div className="flex justify-center itmes-center gap-x-6 mt-5 overflow-x-auto  md:animate-marquee -mx-5 md:-mx-0 hide-scrollbar">
             {products.map((item, i) => (
               <Product key={item._id} product={item} />
             ))}
