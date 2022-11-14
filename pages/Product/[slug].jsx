@@ -28,7 +28,7 @@ const ProductDetails = ({ products, product }) => {
   const smallImageIndex =
     "rounded-md bg-rose-500 small-image selected-image w-[80px] transition-all duration-200 ease-in-out";
   const smallImage =
-    "rounded-md bg-gray-500 small-image selected-image w-[80px] transition-all duration-200 ease-in-out";
+    "rounded-md bg-gray-300 small-image selected-image w-[80px] transition-all duration-200 ease-in-out";
   return (
     <div className="">
       <div className="flex gap-10 m-10 mt-16 text-[#324d67] z-10">
@@ -37,7 +37,7 @@ const ProductDetails = ({ products, product }) => {
             <img
               src={urlFor(image && image[index])}
               alt={name}
-              className="w-[400px] rounded-xl bg-gray-400 cursor-pointer transition-all ease-in-out duration-75 hover:bg-rose-500"
+              className="w-[400px] rounded-xl bg-gray-300 cursor-pointer transition-all ease-in-out duration-75 hover:bg-rose-500 shadow-xl"
             />
           </div>
           <div className="flex md:flex-row flex-col gap-2 mt-4 items-center justify-center">
@@ -114,8 +114,8 @@ const ProductDetails = ({ products, product }) => {
         <h2 className="text-center m-10 text-2xl font-bold text-[#324d67]">
           You may also like
         </h2>
-        <div className=" w-full  my-10 px-12">
-          <div className="flex justify-center gap-x-6 mt-5  overflow-hidden animate-marquee">
+        <div className=" w-full  my-5 px-12">
+          <div className="flex justify-center itmes-center gap-x-6 mt-5 overflow-x-auto md:overflow-hidden md:animate-marquee -mx-5 md:-mx-0">
             {products.map((item, i) => (
               <Product key={item._id} product={item} />
             ))}

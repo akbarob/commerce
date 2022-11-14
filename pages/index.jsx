@@ -13,7 +13,7 @@ export default function Home({ products, bannerData }) {
         </h2>
         <p>Speakers of many varaitions </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 items-center justify-center">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 items-center justify-center px-3">
         {products?.map((product) => (
           <Product key={product._id} product={product} />
         ))}
