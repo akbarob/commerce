@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 const Layout = ({ children }) => {
   return (
     <div className="relative w-full">
@@ -17,7 +18,9 @@ const Layout = ({ children }) => {
         <Navbar />
       </header>
       <main className="font-quicksand">{children}</main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
